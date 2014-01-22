@@ -3,7 +3,7 @@
 
 Portscan detecting kernel module for Linux and Android on the HTC Desire C (and possibly others). 
 
-Primarily developed as a proof of concept tool for the HTC Desire C Android phone. Once loaded the Kernel module registers a handler using the dev_add_pack() method and listens for incoming packets, any that are sent to a handful of well known ports (21, 22, 80, 443) or that have features that are characteristic of the NMAP OS detection probes (T2-T7) will trigger a discrete alert by pulsing the vibration motor for a few milliseconds, this is perceptible when holding the handset but extremely difficult to hear over light background noise. 
+Primarily developed as a proof of concept tool for the HTC Desire C Android phone. Once loaded the Kernel module registers a handler using the dev_add_pack() method and listens for incoming packets that are sent to a handful of well known ports (21, 22, 80, 443) or that have features that are characteristic of the NMAP OS detection probes (T2-T7) will trigger a discrete alert by pulsing the vibration motor for a few milliseconds, this is perceptible when holding the handset but extremely difficult to hear over light background noise. 
 
 Linux version is provided that simply prints the alerts to the Kernel ring buffer. 
 
