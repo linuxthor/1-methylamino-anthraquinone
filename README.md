@@ -9,4 +9,4 @@ Linux version is provided that simply prints the alerts to the Kernel ring buffe
 
 Building Android version requires Kernel sources from HTC and Android SDK/NDK.
 
-TODO: Add NMAP UDP & ICMP probe detection. Improve TCP ECN detection. /proc device on Linux. Send fake responses to confuse OS detection. 
+TODO: Add NMAP UDP & ICMP probe detection. Improve TCP ECN detection. /proc device on Linux. Send fake responses to confuse NMAP OS detection. 
