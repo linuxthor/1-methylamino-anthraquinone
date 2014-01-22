@@ -123,7 +123,7 @@ void cleanup_module(void)
 {
     printk("Unregistering handler..\n");
     dev_remove_pack(&net_if_proto); 
-    printk("protocol unregistered.. terminating.\n");
+    printk("Handler unregistered.. Terminating.\n");
 }
 
 MODULE_LICENSE("GPL");
