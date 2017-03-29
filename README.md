@@ -14,5 +14,7 @@ I wrote this tool about 3 years ago and used it for a while on my HTC Desire C p
 
 In the original Android PoC this would trigger a discrete alert by pulsing the vibration motor for a few milliseconds (perceptible when holding the handset but very difficult to hear over light background noise.) 
 
-Linux version logs the details of anomalies detected to the kernel ring buffer (where they may be read with dmesg) /proc/paranoid is also created which may be read to determine how many of each scan type have been received. 
+Linux version logs the details of anomalies detected to the kernel ring buffer (where they may be read with dmesg) 
+
+/proc/paranoid is also created which may be read to see a count of how many of each scan type have been received. 
 
