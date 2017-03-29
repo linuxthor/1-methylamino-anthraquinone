@@ -87,7 +87,7 @@ void process_packet(struct sk_buff *skb)
         if(tph->syn == 1 && tph->ece == 1 && tph->cwr == 1 && tph->window == htons(3))
         {
             printk("[+] NMAP Explicit Congestion Notification probe from %pI4!\n",&iph->saddr);
-            statman->t1_scan++; 
+            statman->ecn_scan++; 
         }
 
 // T2 sends a TCP null (no flags set) packet with the IP DF bit set and a window 
@@ -173,7 +173,7 @@ static int dr9_stats_show(struct seq_file *m, void *v)
                   "NMAP      Null: %d\n"
                   "NMAP       SYN: %d\n" 
                   "NMAP       FIN: %d\n" 
-                  "NMAP        T1: %d\n" 
+                  "NMAP       ECN: %d\n" 
                   "NMAP        T2: %d\n" 
                   "NMAP        T3: %d\n" 
                   "NMAP        T4: %d\n" 
@@ -185,7 +185,7 @@ static int dr9_stats_show(struct seq_file *m, void *v)
                     ,statman->null_scan
                      ,statman->syn_scan
                      ,statman->fin_scan
-                      ,statman->t1_scan
+                     ,statman->ecn_scan
                       ,statman->t2_scan
                       ,statman->t3_scan
                       ,statman->t4_scan
