@@ -1,12 +1,18 @@
 1-methylamino-anthraquinone
 ===========================
 
-Port scan detecting LKM for Android on the HTC Desire C (and possibly others) or Linux. 
+NMAP port scan detecting LKM for Linux.
 
-Primarily developed as a proof of concept tool for the HTC Desire C Android phone. Once loaded the Kernel module registers a handler using the dev_add_pack() method and listens for incoming packets that are sent to a handful of well known ports (21, 22, 80, 443) or that have features that are characteristic of the NMAP OS detection probes (T2-T7). Triggers a discrete alert by pulsing the vibration motor for a few milliseconds (perceptible when holding the handset but extremely difficult to hear over light background noise). 
+I wrote this tool about 3 years ago and used it for a while on my HTC Desire C phone (it was the version with Beats by Dre audio!) When loaded the Kernel module registers a handler using dev_add_pack() and listens for incoming TCP packets that have characteristics of the following types of scans:  
 
-Linux version is provided that simply prints the alerts to the Kernel ring buffer. 
+* -sS (SYN scan) 
+* -sX (Xmas Tree) 
+* -sN (Null scan)
+* -sF (FIN scan) 
+* OS Detection Probes (T2-T7)
+* Generic connect() to ports 20,21,23,138
 
-Building Android version requires Kernel sources from HTC and Android SDK/NDK.
+In the original Android PoC this would trigger a discrete alert by pulsing the vibration motor for a few milliseconds (perceptible when holding the handset but very difficult to hear over light background noise.) 
 
-TODO: Add NMAP UDP & ICMP probe detection. Improve TCP ECN detection. /proc device on Linux. Send fake responses to confuse NMAP OS detection. 
+Linux version logs the details of anomalies detected to the kernel ring buffer (where they may be read with dmesg) /proc/paranoid is also created which may be read to determine how many of each scan type have been received. 
+
